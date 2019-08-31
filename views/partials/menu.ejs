@@ -1,8 +1,6 @@
 <div id="menuBox" onmousemove="openUserMenu()" onmouseleave="closeUserMenu()">
     <div id="menu">
         <h1 id="menuName"><%= user[0].userName%></h1>
-        <div class="menuItem"><p>Profil</p></div>
-        <div class="menuItem"><p>Einstellungen</p></div>
         <div class="Line"></div>
         <div class="menuItem" onmousedown="openPage('/logout')"><p>Ausloggen</p></div>
     </div>
@@ -37,7 +35,7 @@
 
     #menu {
         background-color: rgba(52, 54, 56, 0.8);
-        width: 200px;
+        width: 100px;
         height: 200px;
         padding: 10px 30px;
         margin-left: 50px;
