@@ -1,0 +1,106 @@
+<div id="shareList">
+    <div id="backButton" onmousedown="back()">Zurück</div>
+    <p class="shareListtext">Zugriffe auf die Liste</p>
+    <p class="shareListname">Home</p>
+    <% sharedUser.forEach(function (item, index) { %>
+        <div class="shareListUser">
+            <p><%= item.userName%></p>
+            <div id="shareListDeleteButton" onmousedown="deleteRow('<%=item.id%>')">X</div>
+        </div>
+    <% }); %>
+
+    <div></div>
+
+</div>
+
+<style>
+
+    .shareListtext {
+        margin-top: 20px;
+        text-align: center;
+    }
+
+    .shareListUser p{
+        float: left
+    }
+
+    #backButton {
+        position: relative;
+        top: 10px;
+        margin-left: -240px;
+        color: white;
+        left: 50%;
+        background-color: rgb(33, 104, 177);;
+        height: 25px;
+        padding-top: 5px;
+        text-align: center;
+        width: 100px;
+    }
+
+    #shareListDeleteButton {
+        position: relative;
+        margin-left: 92%;
+        border-top: 2px white solid;
+        border-left: 20px white solid;
+        border-bottom: 2px white solid;
+        background-color: red;
+        width: 20px;
+        margin-top: -5px;
+        height: 22px;
+        text-align: center;
+        color: white;
+        padding-top: 5px;
+    }
+
+    .shareListUser {
+        background-color: rgb(234, 234, 234);
+        width: 80%;
+        margin-left: 10%;
+        margin-bottom: 12px;
+        padding: 5px 5px 0px 5px;
+    }
+
+    .shareListname {
+        margin-top: 20px;
+        font-size: 30px;
+        text-align: center;
+        margin-bottom: 20px;
+
+    }
+
+
+    #shareList {
+        min-height: 200px;
+        width: 500px;
+        background-color: white;
+        right: -30%;
+        top: 120px;
+        position: fixed;
+        margin-right: -250px;
+        padding-bottom: 10px;
+        z-index: 5;
+        transition: 300ms;
+    }
+
+</style>
+
+<script>
+    function openShareListRight() {
+        document.getElementById('shareList').style.right = '50%';
+        document.getElementById('backgroundbox').style.visibility = 'visible';
+    }
+
+    function closeShareListRight() {
+        document.getElementById('shareList').style.right = '-30%';
+    }
+
+    function back() {
+        closeShareListRight();
+        openShareLeft();
+    }
+
+    function deleteRow(id) {
+        window.location.href = '/deleteshareduser?id=' + id + '&listid=<%=id%>';
+    }
+
+</script>

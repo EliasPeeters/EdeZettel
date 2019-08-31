@@ -1,0 +1,211 @@
+<html>
+    <head>
+        <title>Shopping List</title>
+        <link href="https://fonts.googleapis.com/css?family=Work+Sans:300,400,700&display=swap" rel="stylesheet">
+    </head>
+
+<body onload="onload('<%= open%>')">
+
+
+
+    <% include partials/liststyle.ejs%>
+    <% include partials/searchdesign.ejs%>
+    <% include partials/sidebarstyle.ejs%>
+    <% include partials/style.ejs%>
+    <% include partials/checkdeletedesign.ejs%>
+
+    <% include partials/menu.ejs%>
+    <% include partials/navigation.ejs%>
+    <% include partials/sidebar.ejs%>
+    <% include partials/checkdelete.ejs%>
+    <% include partials/search.ejs%>
+    <% include partials/share.ejs%>
+    <% include partials/sharelist.ejs%>
+
+
+    <script>
+
+        function onload(input) {
+            if (input === 'openshare') {
+                openShare;
+                closeShareLeft();
+                openShareListRight();
+            }
+            link(<%= public%>)
+        }
+
+        function openMenu(id) {
+            if (opened) {
+                document.getElementsByClassName('deleteField')[id].style.visibility = 'visible';
+                document.getElementsByClassName('moreButton')[id].style.marginRight = '10px';
+                document.getElementsByClassName('deleteField')[id].style.width = '100px';
+                document.getElementsByClassName('deleteText')[id].style.opacity = '1';
+                opened = false
+            } else {
+                document.getElementsByClassName('deleteField')[id].style.visibility = 'hidden';
+                document.getElementsByClassName('moreButton')[id].style.marginRight = '-0px';
+                document.getElementsByClassName('deleteField')[id].style.width = '0';
+                document.getElementsByClassName('deleteText')[id].style.opacity = '0';
+                opened = true;
+            }
+
+        }
+
+        function closeMenu() {
+            document.getElementById('deleteField').style.visibility = 'hidden';
+            document.getElementById('moreButton').style.marginRight = '-100px';
+            document.getElementById('deleteField').style.width = '0';
+        }
+
+		function deleteItem(itemNumber, id) {
+			let url = '/deleteitem?id=' + itemNumber;
+			var xmlHttp = new XMLHttpRequest();
+			xmlHttp.open("GET", url, false);
+			xmlHttp.send(null);
+			console.log(xmlHttp.responseText);
+			closeDeleteMenu();
+			location.reload();
+		}
+
+		function openDeleteMenu(itemNumber, id, name) {
+            document.getElementById('box').style.visibility = 'visible';
+            document.getElementById('backgroundbox').style.visibility = 'visible';
+            console.log(document.getElementById('backgroundbox').style.visibility);
+            document.getElementById('objectName').innerText = name;
+            document.getElementById('deleteButton').setAttribute('onmousedown', 'deleteItem(' + itemNumber + ',' + id + ')');
+            console.log(document.getElementById('deleteButton').onmousedown);
+        }
+
+        function closeDeleteMenu() {
+            document.getElementById('box').style.visibility = 'hidden';
+            document.getElementById('backgroundbox').style.visibility = 'hidden';
+        }
+
+        function openSearch() {
+            document.getElementById('search').style.top = '120px';
+            document.getElementById('backgroundbox').style.visibility = 'visible';
+        }
+
+        function closeSearch() {
+            document.getElementById('search').style.top = '-300px';
+            document.getElementById('backgroundbox').style.visibility = 'hidden';
+        }
+
+        function inputSend() {
+            console.log(document.getElementById('input').value);
+            let url = '/iteminput?id=<%=id%>&text=' + document.getElementById('input').value;
+            var xmlHttp = new XMLHttpRequest();
+            xmlHttp.open("GET", url, false);
+            xmlHttp.send(null);
+            document.getElementById('items').outerHTML = xmlHttp.responseText;
+            console.log(xmlHttp.responseText);
+        }
+
+        function openPageAdd(url) {
+            window.location.href = url+ '&id=<%= id%>';
+        }
+
+    </script>
+
+    <div id="content" style="margin-bottom: 100px">
+        <h1 style="margin-left: 20px;"><%= listname%></h1>
+        <div id="newCardButton" onmousedown="openSearch()">
+            <h1>+</h1>
+        </div>
+
+        <div id="shareButton" onmousedown="openShare()">
+            <h1>Teilen</h1>
+        </div>
+
+        <div id="deleteButton" onmousedown="openPage('/deleteList?id=<%=id%>')">
+            <h1>Löschen</h1>
+        </div>
+
+        <style>
+
+            #deleteButton {
+                text-align: center;
+                width: 100px;
+                height: 24px;
+                padding-top: 6px;
+                background-color: red;
+                color: white;
+                font-weight: 700;
+                font-size: 8px;
+                border: none;
+                transition: 300ms;
+                position: relative;
+                left: 80%;
+                margin-top: -50px;
+                margin-bottom: 20px;
+                margin-left: -300px;
+                z-index: 0;
+            }
+
+            #deleteButton:Hover {
+                background-color: rgb(230, 217, 61);
+                cursor: pointer;
+            }
+
+            #shareButton {
+                text-align: center;
+                width: 100px;
+                height: 24px;
+                padding-top: 6px;
+                background-color: rgb(251, 227, 71);
+                color: black;
+                font-weight: 700;
+                font-size: 8px;
+                border: none;
+                transition: 300ms;
+                position: relative;
+                left: 80%;
+                margin-top: -50px;
+                margin-bottom: 20px;
+                margin-left: -180px;
+                z-index: 0;
+            }
+
+            #newCardButton {
+                text-align: center;
+                width: 100px;
+                height: 30px;
+                background-color: rgb(251, 227, 71);
+                color: black;
+                font-weight: 700;
+                font-size: 13px;
+                border: none;
+                transition: 300ms;
+                position: relative;
+                left: 80%;
+                margin-top: -10px;
+                margin-bottom: 20px;
+                margin-left: -60px;
+                z-index: 0;
+            }
+
+            #newCardButton:Hover {
+                background-color: rgb(230, 217, 61);
+                cursor: pointer;
+            }
+
+            #shareButton:Hover {
+                background-color: rgb(230, 217, 61);
+                cursor: pointer;
+            }
+
+        </style>
+
+        <% items.forEach(function (item, index) { %>
+            <div class="oneItem" style="animation-delay: <%=index%>s">
+                <p><%= item.itemAmount%> <%= item.unitName%> <%= item.ingredientNameSingular%></p>
+
+                <div class="deleteField" onmousedown="openDeleteMenu(<%=item.itemID %>, <%=index%>, '<%= item.itemAmount%> <%= item.unitName%> <%= item.ingredientNameSingular%>')"><p class="deleteText">Löschen</p></div>
+                <div class="moreButton"  onmousedown="openMenu(<%=index%>)"><p>...</p></div>
+            </div>
+        <% }); %>
+
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,7 @@
+<div id="items">
+    <% items.forEach(function (item, index) { %>
+    <div id="oneSearchItem" onmousedown="openPageAdd('/additem?unitid=<%=unitid[index]%>&type=<%=type[index]%>&query=<%=querys[index]%>&itemid=<%=ids[index]%>&amount=<%= amount%>&custom=<%= custom%>')">
+        <p><%=item%></p>
+    </div>
+    <% })%>
+</div>

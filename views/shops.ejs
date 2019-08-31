@@ -1,0 +1,60 @@
+<html>
+    <head>
+        <title>Shopping List</title>
+        <link href="https://fonts.googleapis.com/css?family=Work+Sans:300,400,700&display=swap" rel="stylesheet">
+    </head>
+
+    <body onload="getShops()">
+        <% include partials/liststyle.ejs%>
+        <% include partials/searchdesign.ejs%>
+        <% include partials/sidebarstyle.ejs%>
+        <% include partials/style.ejs%>
+
+
+        <% include partials/navigation.ejs%>
+        <% include partials/sidebar.ejs%>
+        <% include partials/menu.ejs%>
+
+        <style>
+            #inputEdeka {
+                margin-top: 20px;
+                margin-bottom: 10px;
+                margin-right: 20px;
+                height: 30px;
+                font-size: 20px;
+            }
+
+            #inputEdeka:focus {
+                outline: none;
+            }
+
+            #submitEdeka {
+                height: 30px;
+                background-color: rgb(33, 104, 177);
+                margin-top: -200px;
+                color: white;
+                border: none;
+            }
+        </style>
+
+        <script>
+
+            function getShops() {
+                console.log(document.getElementById('output').outerHTML);
+                let url = '/getedekafinder?plz=' + document.getElementById('inputEdeka').value;
+                console.log(url);
+                var xmlHttp = new XMLHttpRequest();
+                xmlHttp.open("GET", url, false);
+                xmlHttp.send(null);
+                document.getElementById('output').outerHTML = xmlHttp.responseText;
+            }
+        </script>
+
+        <div id="content">
+            <h1>Finde deinen nächsten EDEKA</h1>
+            <input id="inputEdeka" placeholder="PLZ" type="text" autocomplete="off" value="<%=plz%>">
+            <input id="submitEdeka" value="Suchen" type="button" onmousedown="getShops()">
+            <div id="output"></div>
+        </div>
+    </body>
+</html>

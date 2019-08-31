@@ -1,0 +1,77 @@
+<div id="shareList">
+    <p class="shareListtext">Zugriffe auf die Liste</p>
+    <p class="shareListname">Home</p>
+    <div class="shareListUser">
+        <p>Elias</p>
+        <div id="shareListDeleteButton">X</div>
+    </div>
+    <div></div>
+    <div class="shareListUser">
+        <p>Elias</p>
+        <div id="shareListDeleteButton">X</div>
+    </div>
+</div>
+
+<style>
+    * {
+        margin: 0;
+        font-family: 'Work Sans', sans-serif;
+    }
+    
+    body {
+        background-color: rgb(234, 234, 234);
+    }
+    
+    .shareListtext {
+        margin-top: 20px;
+        text-align: center;
+    }
+    
+    .shareListUser p{
+        float: left
+    }
+    
+    #shareListDeleteButton {
+        position: relative;
+        margin-left: 92%;
+        border-top: 2px white solid;
+        border-left: 20px white solid;
+        border-bottom: 2px white solid;
+        background-color: red;
+        width: 20px;
+        margin-top: -5px;
+        height: 22px;
+        text-align: center;
+        color: white;
+        padding-top: 5px;
+    }
+    
+    .shareListUser {
+        background-color: rgb(234, 234, 234);
+        width: 80%;
+        margin-left: 10%;
+        margin-bottom: 12px;
+        padding: 5px 5px 0px 5px;
+    }
+    
+    .shareListname {
+        margin-top: 20px;
+        font-size: 30px;
+        text-align: center;
+        margin-bottom: 20px;
+        
+    }
+    
+    
+    #shareList {
+        min-height: 200px;
+        width: 500px;
+        background-color: white;
+        left: 50%;
+        top: 5%;
+        position: fixed;
+        margin-left: -250px;
+        padding-bottom: 10px;
+    }
+
+</style>

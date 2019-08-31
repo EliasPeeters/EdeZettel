@@ -1,0 +1,198 @@
+<style>
+    #oneList {
+        background-color: rgb(246, 246, 246);
+        width: 250px;
+        height: 100px;
+        text-align: center;
+        transition: 300ms;
+        box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
+        float: left;
+        margin-right: 20px;
+        margin-left: 20px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+
+    }
+
+    #oneList:Hover {
+        background-color: white;
+        box-shadow: 0px 0px 10px rgba(0,0,0,0.4)
+    }
+
+    #oneList h1 {
+        padding-top: 30px;
+    }
+
+    #addList {
+        background-color: rgb(251, 227, 71);
+        width: 250px;
+        height: 100px;
+        text-align: center;
+        transition: 300ms;
+        box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
+        float: left;
+        margin-right: 20px;
+        margin-left: 20px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        font-size: 30px;
+        color: rgb(52, 54, 56);
+    }
+
+    #addList h1 {
+        padding-top: 13px;
+    }
+
+
+    #addList:Hover {
+        background-color: rgba(251, 227, 71, 0.6);
+        box-shadow: 0px 0px 10px rgba(0,0,0,0.4)
+    }
+
+    #oneItem {
+        margin-left: 20px;
+        background-color: white;
+        width: 80%;
+        padding: 10px;
+    }
+
+    .oneItem {
+        margin-left: 20px;
+        background-color: white;
+        width: 80%;
+        padding: 10px;
+        margin-bottom: 10px;
+    }
+
+    .moreButton {
+        float: right;
+        margin-top: -22px;
+        background-color: rgb(33, 104, 177);
+        color: white;
+        width: 26px;
+        text-align: center;
+        padding-bottom: 8px;
+        border: 0px solid;
+        border-radius: 50px;
+        font-weight: 700;
+        margin-right: 0px;
+        transition: 300ms;
+    }
+
+    .deleteField {
+        float: right;
+        background-color: red;
+        color: rgb(234, 234, 234);
+        text-align: center;
+        padding-top: 10px;
+        height: 29px;
+        margin-right: -10px;
+        width: 0px;
+        margin-top: -29px;
+        visibility: hidden;
+        transition: 300ms;
+
+    }
+
+    .editField {
+        float: right;
+        background-color: rgb(52, 54, 56);
+        color: rgb(234, 234, 234);
+        width: 100px;
+        text-align: center;
+        height: 29px;
+        margin-top: -29px;
+        padding-top: 10px;
+        visibility: hidden;
+        transition: 300ms;
+    }
+
+    .editText {
+        opacity: 0;
+        color: rgb(234, 234, 234);
+    }
+
+
+    .deleteText {
+        opacity: 0;
+        color: rgb(234, 234, 234);
+    }
+
+    .oneItem {
+        margin-left: 20px;
+        background-color: white;
+        width: 80%;
+        padding: 10px;
+    }
+
+    @keyframes showitem {
+        from {width: 0%}
+        to {width: 80%}
+    }
+
+
+    .moreButton {
+        float: right;
+        margin-top: -22px;
+        background-color: rgb(33, 104, 177);
+        color: white;
+        width: 26px;
+        text-align: center;
+        padding-bottom: 8px;
+        border: 0px solid;
+        border-radius: 50px;
+        font-weight: 700;
+        margin-right: 0px;
+        transition: 300ms;
+    }
+
+    .moreButton:Hover {
+        cursor: pointer;
+    }
+
+    .deleteField {
+        float: right;
+        background-color: red;
+        color: white;
+        text-align: center;
+        padding-top: 10px;
+        height: 29px;
+        margin-right: -10px;
+        width: 0px;
+        margin-top: -29px;
+        visibility: hidden;
+        transition: 300ms;
+    }
+
+    .deleteField:Hover {
+        cursor: pointer;
+    }
+
+
+    .editField {
+        float: right;
+        background-color: rgb(52, 54, 56);
+        color: white;
+        width: 100px;
+        text-align: center;
+        height: 29px;
+        margin-top: -29px;
+        padding-top: 10px;
+        visibility: hidden;
+        transition: 300ms;
+    }
+
+    .editField:Hover {
+        cursor: pointer;
+    }
+
+    .editText {
+        opacity: 0;
+    }
+
+
+    .deleteText {
+        opacity: 0;
+    }
+
+</style>

@@ -1,0 +1,87 @@
+* {
+    margin: 0;
+    font-family: 'Work Sans', sans-serif;
+}
+
+
+body {
+    background-color: rgb(234, 234, 234);
+}
+
+#backgroundbox {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.2);
+    position: fixed;
+}
+
+#box {
+    text-align: center;
+    background-color: white;
+    width: 350px;
+    height: 130px;
+    padding: 20px;
+    position: fixed;
+    top: 30%;
+    left: 50%;
+    margin-top: -65px; /* Negative half of height. */
+    margin-left: -175px;
+    box-shadow: 0px 0px 20px rgba(0,0,0,0.3)
+}
+
+#deleteButton {
+    float: left;
+    width: 130px;
+    background-color: red;
+    color: white;
+    height: 27px;
+    padding-top: 5px
+}
+
+#cancelButton {
+    float: left;
+    width: 130px;
+    color: rgb(33, 104, 177);
+    text-decoration: underline;
+    padding-top: 5px;
+    height: 32px;
+    margin-left: 45px;
+    margin-right: 10px;
+}
+
+#objectName {
+    margin-top: 20px; 
+    margin-bottom: 20px;
+    font-size: 20px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

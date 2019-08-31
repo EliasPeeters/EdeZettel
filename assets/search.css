@@ -1,0 +1,113 @@
+body {
+    background-color: rgb(234, 234, 234);
+}
+
+* {
+    margin: 0;
+    font-family: 'Work Sans', sans-serif;
+}
+
+#search {
+    background-color: white;
+    height: 50px;
+    height: 300px;
+    width: 500px;
+    left: 50%;
+    top: 5%;
+    position: fixed;
+    margin-left: -250px;
+    animation-name: openmenu;
+    animation-duration: 300ms;
+} 
+
+@keyframes openmenu {
+    from {height: 50px;}
+    to {height: 300px;}
+}
+
+#searchbar {
+    width: 75%;
+    background-color: rgb(234, 234, 234);
+    height: 30px;
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-bottom: 20px;
+    float: left;
+}
+
+
+#cancel {
+    margin-top: 17px;
+    margin-left: 400px;
+    color: rgb(170, 170, 170);
+    width: 90px;
+    height: 20px;
+    
+}
+
+#searchicon {
+    float: left;
+    width: 20px;
+    margin: 5px;
+}
+
+#input {
+    background-color: rgb(234, 234, 234);
+    width: 90%;
+    border: 0px solid white;
+    outline: red;
+    color: rgb(170, 170, 170);
+    height: 25px;
+    font-size: 20px;
+    margin-top: 3px
+}
+
+#oneSearchItem {
+    width: 300px;
+    padding: 10px;
+    padding-left: 20px;
+    margin-left: 30px;
+    margin-top: 10px;
+    font-weight: 400;
+}
+
+#oneSearchItem:Hover {
+    background-color: rgb(235, 242, 254);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

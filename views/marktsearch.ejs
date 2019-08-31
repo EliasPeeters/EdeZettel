@@ -1,0 +1,23 @@
+<html>
+    <head>
+
+
+    </head>
+
+
+    <body>
+
+        <script>
+            function inputSend(number) {
+                let url = '/getmarkt?url=' + 'https://www.edeka.de/marktsuche.jsp?marktsearch=' + number + '&marktsearch_marktid=&marktsearch_section=&marktsearch_marktname=&marktsearch_address=&isSentWebsite=true';
+                var xmlHttp = new XMLHttpRequest();
+                xmlHttp.open("GET", url, false);
+                xmlHttp.send(null);
+                document.getElementById('output').outerHTML = xmlHttp.responseText;
+                console.log(xmlHttp.responseText);
+            }
+        </script>
+        <div onmousedown="inputSend('<%= number%>')"><p>Search</p></div>
+        <div id="output"></div>
+    </body>
+</html>

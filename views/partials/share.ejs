@@ -1,0 +1,213 @@
+<div id="share">
+    <p class="text">Gib den Usernamen der Person ein, mit der du die Liste</p>
+    <p class="name">Home</p>
+    <p class="text" style="margin-bottom: 20px">teilen möchtest.</p>
+
+    <input id="shareInput" type="text" onkeyup="checkUser()" autocomplete="off">
+    <div id="shareAddButton" onmousedown="addUser()"><p>+</p></div>
+    <input id="schliessenButton" type="button" value="Liste" onmousedown="openList()">
+    <div id="divider"></div>
+    <input id="shareLinkButton" type="button" value="Öffentlicher Link" onmousedown="toggleLink()">
+    <input id="shareLinkButton2" type="button" value="Link öffnen" onmousedown="openPage('<%=link%>')">
+    <div id="LinkOutput"><p style="overflow: auto;"><%= link %></p></div>
+    <div id="divider"></div>
+    <input id="schliessenButton" type="button" value="Schließen" onmousedown="closeShare()">
+</div>
+
+<script>
+
+    var opened = <%= public%>;
+
+    function open() {
+        window.location.href = '<%= link%>';
+    }
+    function sendPublic(input) {
+        let url = '/listpublic?id=<%=id%>&public=' + input;
+        let xmlHttp = new XMLHttpRequest();
+        xmlHttp.open("GET", url, false);
+        xmlHttp.send(null);
+        console.log(xmlHttp.responseText);
+    }
+
+    function toggleLink() {
+        opened = !opened;
+        link(opened);
+        sendPublic(opened);
+    }
+
+    function link(bool) {
+        if (bool) {
+            document.getElementById('shareLinkButton2').style.backgroundColor = 'rgb(33, 104, 177)';
+            document.getElementById('LinkOutput').style.color = 'rgb(0, 0, 0)';
+        } else {
+            document.getElementById('shareLinkButton2').style.backgroundColor = 'rgb(170, 170, 170)';
+            document.getElementById('LinkOutput').style.color = 'rgb(150, 150, 150)';
+        }
+    }
+
+    function linkSetup() {
+        if ('<%=public%>' === '0') {
+            document.getElementById('shareLinkButton2').style.backgroundColor = 'rgb(170, 170, 170);';
+        }
+    }
+
+    function openList() {
+        closeShareLeft();
+        openShareListRight();
+    }
+
+    function addUser() {
+        let username = document.getElementById('shareInput').value;
+        window.location.href = '/adduser?username=' + username + '&listid=<%= id%>';
+    }
+
+    function checkUser() {
+        let url = '/checkuser?name=' + document.getElementById('shareInput').value;
+        var xmlHttp = new XMLHttpRequest();
+        xmlHttp.open("GET", url, false);
+        xmlHttp.send(null);
+        console.log(xmlHttp.responseText);
+        document.getElementById('shareAddButton').style.backgroundColor = xmlHttp.responseText;
+    }
+
+    function openShare() {
+        document.getElementById('share').style.top = '120px';
+        document.getElementById('backgroundbox').style.visibility = 'visible';
+    }
+
+    function closeShareLeft() {
+        document.getElementById('share').style.left = '-550px';
+        document.getElementById('backgroundbox').style.visibility = 'visible';
+    }
+
+    function openShareLeft() {
+        document.getElementById('share').style.left = '50%';
+        document.getElementById('backgroundbox').style.visibility = 'visible';
+    }
+
+    function closeShare() {
+        document.getElementById('share').style.top = '-500px';
+        document.getElementById('backgroundbox').style.visibility = 'hidden';
+    }
+</script>
+
+<style>
+
+    #schliessenButton {
+        width: 420px;
+        margin-left: 40px;
+        margin-top: 20px;
+        background-color: rgb(33, 104, 177);
+        color: white;
+        height: 30px;
+        border: none;
+    }
+
+    #shareLinkButton {
+        margin-top: 20px;
+        margin-left: 40px;
+        width: 190px;
+        height: 30px;
+        background-color: rgb(33, 104, 177);
+        color: white;
+        border: none;
+        font-size: 13px;
+        margin-bottom: 10px
+    }
+
+    #shareLinkButton:focus {
+        outline: none;
+    }
+
+    #shareLinkButton2  {
+        margin-top: 20px;
+        margin-left: 40px;
+        width: 190px;
+        height: 30px;
+        background-color: rgb(33, 104, 177);
+        color: white;
+        border: none;
+        font-size: 13px;
+        margin-bottom: 10px
+    }
+
+    #LinkOutput {
+        height: 20px;
+        width: 420px;
+        margin-top: 20px;
+        margin-left: 40px;
+        text-align: center;
+        background-color: rgb(234, 234, 234);
+        overflow: hidden;
+    }
+
+    #LinkOutput {
+        -ms-overflow-style: none;  // IE 10+
+        scrollbar-width: none;  // Firefox
+    }
+
+    #LinkOutput::-webkit-scrollbar {
+        display: none;  // Safari and Chrome
+    }
+
+    #divider {
+        background-color: rgb(170, 170, 170);
+        height: 2px;
+        width: 80%;
+        margin-left: 10%;
+        margin-top: 30px;
+        overflow: scroll;
+    }
+
+    #shareAddButton {
+        width: 30px;
+        height: 25px;
+        margin-left: 435px;
+        margin-top: -30px;
+        text-align: center;
+        padding-top: 5px;
+        color: white;
+        background-color: red;
+
+    }
+
+    #shareInput {
+        width: 75%;
+        height: 30px;
+        margin-left: 40px;
+        background-color: rgb(234, 234, 234);
+        border: none;
+        padding-left: 20px;
+        font-size: 15px;
+    }
+
+    #shareInput:focus {
+        outline: none;
+    }
+
+    .text {
+        margin-top: 20px;
+
+        text-align: center;
+
+    }
+
+    .name {
+        margin-top: 20px;
+        font-size: 30px;
+        text-align: center;
+    }
+
+    #share {
+        height: 480px;
+        width: 500px;
+        background-color: white;
+        left: 50%;
+        top: -500px;
+        position: fixed;
+        margin-left: -250px;
+        z-index: 5;
+        visibility: visible;
+        transition: 300ms;
+    }
+</style>

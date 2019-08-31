@@ -1,0 +1,56 @@
+<html lang="de">
+    <head>
+        <title>Shopping List</title>
+        <link rel="stylesheets" type="text/css" href="assets/style.css">
+        <link rel="stylesheets" type="text/css" href="assets/sidebar.css">
+        <link href="assets/list.css" rel="stylesheets" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Work+Sans:300,400,700&display=swap" rel="stylesheet">
+    </head>
+
+    <body>
+        <script>
+            function openPage(url) {
+                window.location.href = url;
+            }
+        </script>
+
+        <% include partials/liststyle.ejs%>
+        <% include partials/sidebarstyle.ejs%>
+        <% include partials/style.ejs%>
+
+        <% include partials/navigation.ejs%>
+        <% include partials/sidebar.ejs%>
+        <% include partials/menu.ejs%>
+
+        <div id="content">
+
+            <div style="height: 350px">
+                <h1 style="margin-left: 20px">Listen</h1>
+
+                <% lists.forEach(function (item) { %>
+                    <div id="oneList" onmousedown="openPage('/onelist?id=<%=item.listID%>')">
+                        <h1><%= item.listName%></h1>
+                    </div>
+                <% }); %>
+
+                <div id="addList" onmousedown="openPage('/newlist')">
+                    <h1>+</h1>
+                </div>
+            </div>
+
+            <div style="height: 350px">
+                <h1 style="margin-left: 20px">Geteilte Listen</h1>
+
+                <% sharedlists.forEach(function (item) { %>
+                <div id="oneList" onmousedown="openPage('/onelist?id=<%=item.listID%>')">
+                    <h1><%= item.listName%></h1>
+                </div>
+                <% }); %>
+
+            </div>
+
+
+        </div>
+
+    </body>
+</html>

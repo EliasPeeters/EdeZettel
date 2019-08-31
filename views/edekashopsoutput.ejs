@@ -1,0 +1,54 @@
+<style>
+    * {
+        font-family: 'Work Sans', sans-serif;
+    }
+
+    body {
+        background-color: rgb(234, 234, 234);
+    }
+
+    #output {
+        width: 90%;
+
+        background-color: white;
+        padding: 10px;
+        padding-left: 20px;
+        padding-bottom: 20px;
+        margin-bottom: 20px;
+    }
+
+    #output p {
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    .googleMapsButton {
+        background-color: rgb(33, 104, 177);
+        color: white;
+        border: 0px solid white;
+        width: 200px;
+        padding: 5px;
+        font-size: 15px;
+    }
+
+    #content {
+        padding-right: 70px;
+    }
+
+</style>
+
+<script>
+    function openPage(url) {
+        window.location.href = url;
+    }
+</script>
+<% result.forEach(function (item, index) { %>
+    <div id="output">
+        <h1><%= item.shopName %></h1>
+        <p><%= item.shopStrasse%>, <%= item.shopPlz%> <%= item.shopOrt%></p>
+        <p></p>
+        <p>Telefon: <%= item.shopTelefon%></p>
+        <p>Fax: <%= item.shopFax%></p>
+        <input onmousedown="openPage('<%= links[index]%>')" class="googleMapsButton" type="button" value="Open in Google Maps">
+    </div>
+<% })%>

@@ -1,0 +1,54 @@
+<html>
+    <head>
+        <title>Shopping List</title>
+    </head>
+
+    <body>
+        <% include partials/style.ejs%>
+        <% include partials/sidebarstyle.ejs%>
+
+        <% include partials/menu.ejs%>
+        <% include partials/navigation.ejs%>
+        <% include partials/sidebar.ejs%>
+
+        <style>
+            #listInput {
+                width: 100%;
+
+            }
+
+            #formNewList {
+                background-color: white;
+                width: 70%;
+                padding: 10px 10px 10px;
+                margin-top: 20px;
+            }
+
+            #newListCreate {
+                background-color: rgb(251, 227, 71);
+                border: none;
+                width: 100px;
+                height: 30px;
+                margin-top: 20px;
+                font-weight: 700;
+
+            }
+
+        </style>
+
+        <div id="content">
+            <h1>New List</h1>
+            <form id="formNewList" method="post" action="/newlist">
+                <p style="margin-top: 20px; margin-right: 10px">ListName</p>
+                <input id="listInput" style="margin-top: 20px" type="text" name="listname"> <br />
+
+                <input id="newListCreate" type="submit" value="Erstellen">
+
+
+            </form>
+        </div>
+
+
+
+    </body>
+</html>

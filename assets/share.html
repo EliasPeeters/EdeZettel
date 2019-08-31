@@ -1,0 +1,133 @@
+<div id="share">
+    <p class="text">Gib den Usernamen der Person ein, mit der du die Liste</p>
+    <p class="name">Home</p>
+    <p class="text" style="margin-bottom: 20px">teilen möchtest.</p>
+    
+    <input id="shareInput" type="text">
+    <div id="shareAddButton"><p>+</p></div>
+    
+    <div id="divider"></div>
+    <input id="shareLinkButton" type="button" value="Öffentlichen Link ausschalten" onmousedown="toggleLink()">
+    <input id="shareLinkButton2" type="button" value="Link kopieren">
+    <div id="LinkOutput"><p style="overflow: auto;">(/Users/eliaspeeters/Documents/Programming/node/shoppinglist</p></div>
+</div>
+
+<script>
+    var opened = true;
+    function toggleLink() {
+        if (opened) {
+            console.log('test');
+            document.getElementById('shareLinkButton2').style.backgroundColor = 'rgb(170, 170, 170);';
+        }
+        if (opened) {
+            document.getElementById('shareLinkButton2').style.backgroundColor = 'rgb(170, 170, 170);';
+        }
+    }
+
+</script>
+
+<style>
+    * {
+        margin: 0;
+        font-family: 'Work Sans', sans-serif;
+    }
+    
+    body {
+        background-color: rgb(234, 234, 234);
+    }
+    
+    #shareLinkButton {
+        margin-top: 20px;
+        margin-left: 40px;
+        width: 190px;
+        height: 30px;
+        background-color: rgb(33, 104, 177);
+        color: white;
+        border: none;
+        font-size: 13px;
+        margin-bottom: 10px
+    }
+    
+    #shareLinkButton:focus {
+        outline: none;
+    }
+    
+    #shareLinkButton2  {
+        margin-top: 20px;
+        margin-left: 40px;
+        width: 190px;
+        height: 30px;
+        background-color: rgb(33, 104, 177);
+        color: white;
+        border: none;
+        font-size: 13px;
+        margin-bottom: 10px
+    }
+    
+    #LinkOutput {
+        height: 20px;    
+        width: 480;
+        margin-top: 20px;
+        margin-left: 10px;
+        background-color: rgb(234, 234, 234);;
+    }
+    
+    #divider {
+        background-color: rgb(170, 170, 170);
+        height: 2px;
+        width: 80%;
+        margin-left: 10%;
+        margin-top: 30px;
+        overflow: scroll;
+    }
+    
+    #shareAddButton {
+        width: 30px;
+        height: 25px;
+        margin-left: 435px;
+        margin-top: -30px;
+        text-align: center;
+        padding-top: 5px;
+        color: white;
+        background-color: red;
+        
+    }
+    
+    #shareInput {
+        width: 75%;
+        height: 30px;
+        margin-left: 40px;
+        background-color: rgb(234, 234, 234);
+        border: none;
+        padding-left: 20px;
+        font-size: 15px;
+    }
+    
+    #shareInput:focus {
+        outline: none;
+    }
+    
+    .text {
+        margin-top: 20px;
+        
+        text-align: center;
+        
+    }
+    
+    .name {
+        margin-top: 20px;
+        font-size: 30px;
+        text-align: center;
+    }
+    
+    #share {
+        height: 50px;
+        height: 350px;
+        width: 500px;
+        background-color: white;
+        left: 50%;
+        top: 5%;
+        position: fixed;
+        margin-left: -250px;
+    }
+</style>

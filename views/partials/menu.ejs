@@ -1,0 +1,76 @@
+<div id="menuBox" onmousemove="openUserMenu()" onmouseleave="closeUserMenu()">
+    <div id="menu">
+        <h1 id="menuName"><%= user[0].userName%></h1>
+        <div class="menuItem"><p>Profil</p></div>
+        <div class="menuItem"><p>Einstellungen</p></div>
+        <div class="Line"></div>
+        <div class="menuItem" onmousedown="openPage('/logout')"><p>Ausloggen</p></div>
+    </div>
+</div>
+
+
+
+<style>
+
+    .menuItem {
+        color: white;
+        height: 25px;
+        padding-top: 5px;
+        margin-bottom: 5px;
+        margin-top: 5px;
+    }
+
+    .menuItem:Hover {
+         background-color: rgb(120, 120, 120);
+         cursor: pointer;
+    }
+
+    #menuBox {
+        position: fixed;
+        height: 300px;
+        width: 300px;
+        right: 20px;
+        top: 10px;
+        visibility: hidden;
+        z-index: 15;
+    }
+
+    #menu {
+        background-color: rgba(52, 54, 56, 0.8);
+        width: 200px;
+        height: 200px;
+        padding: 10px 30px;
+        margin-left: 50px;
+        z-index: 100;
+        position: fixed;
+        margin-top: 60px;
+    }
+
+    .Line {
+        background-color: white;
+        width: 220px;
+        margin-left: -10px;
+        height: 2px
+    }
+
+    #menu h1 {
+        color: white;
+        margin-bottom: 20px;
+    }
+
+    body {
+        background-color: rgb(234, 234, 234);
+        font-family: 'Work Sans', sans-serif;
+    }
+</style>
+
+<script>
+    function openUserMenu() {
+        document.getElementById('menuBox').style.visibility = 'visible';
+    }
+
+    function closeUserMenu() {
+        document.getElementById('menuBox').style.visibility = 'hidden';
+    }
+
+</script>

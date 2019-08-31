@@ -1,0 +1,45 @@
+<html>
+<head>
+    <title>Shopping List</title>
+    <link href="https://fonts.googleapis.com/css?family=Work+Sans:300,400,700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<script>
+    function openPage(url) {
+        window.location.href = url;
+    }
+
+</script>
+
+<% include partials/registerdesign.ejs%>
+<div id="backgroundImage"></div>
+<div id="loginBox">
+    <div id="secondBox">
+        <h1>Registrieren</h1>
+        <form method="post" action="/register">
+            <p id="message" style="color: <%= color%>"><%= message%></p>
+            <p class="formDescription">Username</p>
+            <input type="text" name="username" id="loginInput" autocomplete="off"> <br />
+
+            <p class="formDescription">Password</p>
+            <input type="password" name="password1" id="loginInput" autocomplete="off"> <br />
+
+            <p class="formDescription">Password wiederholen</p>
+            <input type="password" name="password2" id="loginInput" autocomplete="off"> <br />
+
+            <p class="formDescription">Postleitzahl</p>
+            <input type="text" name="userAdress" id="loginInput" autocomplete="off"> <br />
+
+            <input type="submit" value="Registrieren" id="loginButton">
+
+        </form>
+        <p id="description" onmousedown="openPage('/login')">Du hast schon einen Account: Login</p>
+    </div>
+</div>
+
+
+
+</body>
+</html>

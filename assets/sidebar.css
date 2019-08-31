@@ -1,0 +1,49 @@
+#Sidebar {
+    width: 150px;
+    height: 100%;
+    background-color: rgb(52, 54, 56);
+    position: fixed;
+    margin-top: 70px;
+    padding-top: 40px;
+}
+
+#Sidebar li {
+    list-style: none;
+    margin-left: -20px;
+    color: white;
+    margin-bottom: 10px;
+    
+}
+
+.listitem {
+    padding-left: 20px;
+}
+
+#SidebarItem {
+    color: white;
+    height: 30px;
+    font-size: 17px;
+    font-weight: bold;
+    padding-top: 9px;
+    padding-left: 20px;
+    transition: 300ms;
+    margin-top: 10px;
+}
+
+#SidebarItem:Hover {
+    background-color: rgb(100, 100, 100);
+}
+
+#SubSidebarItem {
+    color: white;
+    height: 25px;
+    font-size: 15px;
+    font-weight: 300;
+    padding-top: 5px;
+    padding-left: 40px;
+    transition: 300ms;
+}
+
+#SubSidebarItem:Hover {
+    background-color: rgb(70, 70, 70);
+}

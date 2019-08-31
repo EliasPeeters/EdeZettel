@@ -1,0 +1,35 @@
+<html>
+<head>
+    <title>Shopping List</title>
+</head>
+
+<body>
+<h1>New Item</h1>
+<form method="post" action="/newitem">
+
+    <script>
+
+        function inputSend() {
+            console.log(document.getElementById('itemInput').value);
+            let url = '/iteminput?text=' + document.getElementById('itemInput').value;
+            var xmlHttp = new XMLHttpRequest();
+            xmlHttp.open("GET", url, false);
+            xmlHttp.send(null);
+            document.getElementById('output').outerHTML = xmlHttp.responseText;
+            console.log(xmlHttp.responseText);
+        }
+
+    </script>
+    <p>Item</p>
+    <input id="itemInput" onkeyup="inputSend()" autocomplete="off"> <br />
+
+    <input type="button" value="Create">
+    <div id="output">
+
+    </div>
+
+</form>
+
+
+</body>
+</html>

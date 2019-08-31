@@ -1,0 +1,20 @@
+<script>
+    function openPage(url) {
+        window.location.href = url;
+    }
+</script>
+
+<div id="Sidebar">
+
+    <div id="SidebarItem" onmousedown="openPage('/lists')"><p>Home</p></div>
+    <div id="SidebarItem" onmousedown="openPage('/edekafinder')"><p>EDEKA Finder</p></div>
+    <div id="SidebarItem" onmousedown="openPage('/lists')"><p>Listen</p></div>
+    <% lists.forEach(function (item) { %>
+        <div id="SubSidebarItem" onmousedown="openPage('/onelist?id=<%=item.listID%>')"><p><%=item.listName%></p></div>
+    <% }); %>
+    <div id="SidebarItem" onmousedown="openPage('/lists')"><p>Geteilte Listen</p></div>
+    <% sharedlists.forEach(function (item) { %>
+    <div id="SubSidebarItem" onmousedown="openPage('/onelist?id=<%=item.listID%>')"><p><%=item.listName%></p></div>
+    <% }); %>
+
+</div>

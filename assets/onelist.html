@@ -1,0 +1,77 @@
+<html>
+    <head>
+        <title>Shopping</title>
+        <link href="style.css" type="text/css" rel="stylesheet">
+        <link href="sidebar.css" type="text/css" rel="stylesheet">
+        <link href="list.css" type="text/css" rel="stylesheet">
+        
+        <link href="https://fonts.googleapis.com/css?family=Work+Sans:300,400,700&display=swap" rel="stylesheet">
+    </head>
+
+    <body>
+        <div id="Sidebar">
+            <div id="SidebarItem"><p>Home</p></div>
+            <div id="SidebarItem"><p>Lists</p></div>
+            <div id="SubSidebarItem"><p>Home</p></div>
+            <div id="SubSidebarItem"><p>Private</p></div>
+            <div id="SubSidebarItem"><p>Family</p></div>
+            <div id="SidebarItem"><p>Shared</p></div>
+            <div id="SubSidebarItem"><p>Home</p></div>
+            <div id="SubSidebarItem"><p>Private</p></div>
+            <div id="SubSidebarItem"><p>Family</p></div>
+        </div>
+        <div id="Navigation">
+            <img src="logo.png" id="logo">
+            <h1>EdeShop</h1>
+        </div>
+        
+        <div id="content" onmousedown="closeMenu">
+            <script>
+                var opened = true;
+                function openMenu(id) {
+                    if (opened) {
+                        document.getElementsByClassName('deleteField')[id].style.visibility = 'visible';
+                        document.getElementsByClassName('editField')[id].style.visibility = 'visible';
+                        document.getElementsByClassName('moreButton')[id].style.marginRight = '10px';
+                        document.getElementsByClassName('deleteField')[id].style.width = '100px';
+                        document.getElementsByClassName('editField')[id].style.width = '100px';
+                        document.getElementsByClassName('deleteText')[id].style.opacity = '1'; 
+                        document.getElementsByClassName('editText')[id].style.opacity = '1'; 
+                        opened = false
+                    } else {
+                        document.getElementsByClassName('deleteField')[id].style.visibility = 'hidden';
+                        document.getElementsByClassName('editField')[id].style.visibility = 'hidden';
+                        document.getElementsByClassName('moreButton')[id].style.marginRight = '-0px';
+                        document.getElementsByClassName('deleteField')[id].style.width = '0';
+                        document.getElementsByClassName('editField')[id].style.width = '0';
+                        document.getElementsByClassName('deleteText')[id].style.opacity = '0'; 
+                        document.getElementsByClassName('editText')[id].style.opacity = '0'; 
+                        opened = true;
+                    }
+                    
+                }
+                
+                function closeMenu() {
+                    document.getElementById('deleteField').style.visibility = 'hidden';
+                    document.getElementById('editField').style.visibility = 'hidden';
+                    document.getElementById('moreButton').style.marginRight = '-100px';
+                    document.getElementById('deleteField').style.width = '0';
+                    document.getElementById('editField').style.width = '0';
+                }
+                
+            </script>
+            <h1 style="margin-left: 20px">Home</h1>
+            <div class="oneItem" style="margin-top: 30px;">
+                <p>3 Kilogram Äpfel</p>
+                <div class="deleteField" onmousedown="openMenu(0)"><p class="deleteText">Delete</p></div>
+                <div class="editField" onmousedown="openMenu(0)"><p class="editText">Edit</p></div>
+                <div class="moreButton" onmousedown="openMenu(0)"><p>...</p></div>
+                
+            </div>
+
+            
+        </div>
+        
+    </body>
+    
+</html>
